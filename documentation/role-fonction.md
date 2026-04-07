@@ -1,22 +1,31 @@
 # ROLE ET FONCTIONNALITEES:
 
-### User: CLIENT
+### User: **CLIENT**
 
 **fonctionalitées:**
 
-- RECHERCHER;
-- RESERVER;
-- PAYER;
-- DONNEER UN AVIS;
+- Authentifier
+- Consulter(entier en location);
+- Reserver;
+- Payer;
+- Donner un avis;
 
-### User: ADMIN
+### User: **ADMIN**
 
 **fonctionalitées:**
 
-- autthentifier;
-- gerer les entier en location;
+- Authentifier;
+- Gerer les entier en location;
 - Dashbord(rapport et statisqtique) PLANIFIER;
-- creation des comptes banquaire;
-- gerer les reservations;
-- ajouter des services speciaux
--
+- Creation des comptes banquaire;
+- Gerer les reservations;
+- Gerer les clients
+
+### User: **SUPER ADMIN**
+
+**fonctionalitées:**
+
+- Authentifier;
+- Gerer les admins;
+- Consulter les rapports;
+- confoguer le systeme;
