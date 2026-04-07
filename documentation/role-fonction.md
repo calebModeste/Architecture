@@ -28,4 +28,4 @@
 - Authentifier;
 - Gerer les admins;
 - Consulter les rapports;
-- confoguer le systeme;
+- configurer le systeme;
