@@ -1,0 +1,80 @@
+<mxfile host="Electron" modified="2026-04-10T10:00:00.000Z" agent="5.0" version="24.0" type="device">
+  <diagram id="paiement-activity" name="Diagramme d'Activité - Paiement">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="950" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- START -->
+        <mxCell id="start" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="365" y="40" width="30" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a1" value="Afficher récapitulatif de réservation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="100" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="Saisir informations de paiement (Stripe)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="170" width="200" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Decision 1 -->
+        <mxCell id="d1" value="Données valides?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="240" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="err1" value="Afficher erreurs de formulaire" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="530" y="255" width="160" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a3" value="Créer Payment Intent via Stripe API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="330" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="a4" value="Confirmer le paiement (3D Secure si requis)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="400" width="200" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Decision 2 -->
+        <mxCell id="d2" value="Paiement accepté?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="470" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="err2" value="Afficher erreur de paiement (carte refusée, fonds insuffisants...)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="530" y="478" width="160" height="54" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a5" value="Enregistrer transaction en BDD" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="560" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="a6" value="Mettre à jour statut réservation → CONFIRMED" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="630" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="a7" value="Bloquer les dates dans le calendrier" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="700" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="a8" value="Envoyer email de confirmation (Nodemailer)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="770" width="200" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- END -->
+        <mxCell id="end" value="" style="doubleEllipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="365" y="840" width="30" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- EDGES -->
+        <mxCell id="e1" edge="1" source="start" target="a1" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" edge="1" source="a1" target="a2" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" edge="1" source="a2" target="d1" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" value="Oui" edge="1" source="d1" target="a3" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5" value="Non" edge="1" source="d1" target="err1" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5b" edge="1" source="err1" target="end" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e6" edge="1" source="a3" target="a4" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e7" edge="1" source="a4" target="d2" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e8" value="Oui" edge="1" source="d2" target="a5" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e9" value="Non" edge="1" source="d2" target="err2" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e9b" edge="1" source="err2" target="end" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e10" edge="1" source="a5" target="a6" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e11" edge="1" source="a6" target="a7" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e12" edge="1" source="a7" target="a8" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e13" edge="1" source="a8" target="end" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

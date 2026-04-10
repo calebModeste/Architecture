@@ -6,7 +6,8 @@
 
 ### BACK END
 
-    > SupaBase
+    > node js
+    > express js
 
 ### DATABASE
 

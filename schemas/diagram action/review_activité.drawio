@@ -1,0 +1,90 @@
+<mxfile host="Electron" modified="2026-04-10T10:00:00.000Z" agent="5.0" version="24.0" type="device">
+  <diagram id="review-activity" name="Diagramme d'Activité - Avis et Évaluations">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="950" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- START -->
+        <mxCell id="start" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="365" y="40" width="30" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a1" value="Fin du séjour (check-out effectué)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="100" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="Envoyer invitation à laisser un avis (Nodemailer)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="170" width="200" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Decision 1: client souhaite laisser un avis? -->
+        <mxCell id="d1" value="Client souhaite laisser un avis?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="240" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="skip1" value="Ignorer l'invitation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="540" y="255" width="160" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a3" value="Accéder au formulaire d'avis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="330" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="a4" value="Attribuer une note (1 à 5 étoiles)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="400" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="a5" value="Saisir titre et commentaire" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="470" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="a6" value="Soumettre l'avis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="540" width="200" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Decision 2: contenu approprié? -->
+        <mxCell id="d2" value="Contenu approprié?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="610" width="180" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- No branch: modération -->
+        <mxCell id="mod1" value="Signaler pour modération (ADMIN)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="540" y="600" width="180" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="mod2" value="ADMIN examine et décide" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="540" y="660" width="180" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a7" value="Publier l'avis automatiquement" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="700" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="a8" value="Recalculer le rating moyen du logement" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="770" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="a9" value="Notifier le propriétaire du nouvel avis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="840" width="200" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- END -->
+        <mxCell id="end" value="" style="doubleEllipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="365" y="915" width="30" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- EDGES -->
+        <mxCell id="e1" edge="1" source="start" target="a1" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" edge="1" source="a1" target="a2" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" edge="1" source="a2" target="d1" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" value="Oui" edge="1" source="d1" target="a3" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5" value="Non" edge="1" source="d1" target="skip1" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5b" edge="1" source="skip1" target="end" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e6" edge="1" source="a3" target="a4" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e7" edge="1" source="a4" target="a5" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e8" edge="1" source="a5" target="a6" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e9" edge="1" source="a6" target="d2" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e10" value="Oui" edge="1" source="d2" target="a7" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e11" value="Non" edge="1" source="d2" target="mod1" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e11b" edge="1" source="mod1" target="mod2" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e11c" edge="1" source="mod2" target="a7" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e12" edge="1" source="a7" target="a8" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e13" edge="1" source="a8" target="a9" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e14" edge="1" source="a9" target="end" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

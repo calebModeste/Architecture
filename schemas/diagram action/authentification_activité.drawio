@@ -1,0 +1,84 @@
+<mxfile host="Electron" modified="2026-04-10T10:00:00.000Z" agent="5.0" version="24.0" type="device">
+  <diagram id="auth-activity" name="Diagramme d'Activité - Authentification">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- START -->
+        <mxCell id="start" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="365" y="40" width="30" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Activities -->
+        <mxCell id="a1" value="Saisir email et mot de passe" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="100" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="Valider le format des champs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="170" width="200" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Decision 1 -->
+        <mxCell id="d1" value="Format valide?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="240" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="err1" value="Afficher erreur de validation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="530" y="255" width="160" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a3" value="Envoyer requête d'authentification" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="330" width="200" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Decision 2 -->
+        <mxCell id="d2" value="Credentials corrects?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="400" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="err2" value="Afficher erreur d'identifiants" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="530" y="415" width="160" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Decision 3 -->
+        <mxCell id="d3" value="Compte actif?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="490" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="err3" value="Afficher compte désactivé" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="530" y="505" width="160" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a4" value="Générer token JWT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="580" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="a5" value="Stocker token côté client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="650" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="a6" value="Rediriger selon rôle (CLIENT / ADMIN)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="720" width="200" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- END -->
+        <mxCell id="end" value="" style="doubleEllipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="365" y="790" width="30" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- EDGES - Main flow -->
+        <mxCell id="e1" edge="1" source="start" target="a1" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" edge="1" source="a1" target="a2" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" edge="1" source="a2" target="d1" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" value="Oui" edge="1" source="d1" target="a3" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5" value="Non" edge="1" source="d1" target="err1" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5b" edge="1" source="err1" target="end" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e6" edge="1" source="a3" target="d2" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e7" value="Oui" edge="1" source="d2" target="d3" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e8" value="Non" edge="1" source="d2" target="err2" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e8b" edge="1" source="err2" target="end" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e9" value="Oui" edge="1" source="d3" target="a4" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e10" value="Non" edge="1" source="d3" target="err3" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e10b" edge="1" source="err3" target="end" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e11" edge="1" source="a4" target="a5" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e12" edge="1" source="a5" target="a6" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e13" edge="1" source="a6" target="end" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
