@@ -1,157 +1,227 @@
-<mxfile host="65bd71144e">
-    <diagram id="uml-db" name="Database UML">
-        <mxGraphModel dx="4384" dy="3164" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1700" math="0" shadow="0">
-            <root>
-                <mxCell id="0"/>
-                <mxCell id="1" parent="0"/>
-                <mxCell id="role" value="ROLE" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#e1d5e7;" parent="1" vertex="1">
-                    <mxGeometry x="-570" y="-300" width="160" height="100" as="geometry"/>
-                </mxCell>
-                <mxCell id="role_attr" value="+ id: int [PK]&#xa;+ role_name: string(30)&#xa;+ description: text" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="role" vertex="1">
-                    <mxGeometry y="26" width="160" height="74" as="geometry"/>
-                </mxCell>
-                <mxCell id="user" value="USER" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#d5e8d4;" parent="1" vertex="1">
-                    <mxGeometry x="-340" y="-340" width="200" height="180" as="geometry"/>
-                </mxCell>
-                <mxCell id="user_attr" value="+ id: int [PK]&#xa;+ first_name: string(100)&#xa;+ last_name: string(100)&#xa;+ email: email [unique]&#xa;+ password: string(255)&#xa;+ phone: string(20)&#xa;+ profile_picture: string&#xa;+ role_id: int [FK]&#xa;+ verification_status: enum&#xa;+ created_at: timestamp&#xa;+ is_active: boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" parent="user" vertex="1">
-                    <mxGeometry y="26" width="200" height="154" as="geometry"/>
-                </mxCell>
-                <mxCell id="type_loc" value="TYPE_LOCATION" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#e1d5e7;" parent="1" vertex="1">
-                    <mxGeometry x="-70" y="-1050" width="180" height="100" as="geometry"/>
-                </mxCell>
-                <mxCell id="type_loc_attr" value="+ id: int [PK]&#xa;+ type_name: string(100)&#xa;+ description: text" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" parent="type_loc" vertex="1">
-                    <mxGeometry y="26" width="180" height="74" as="geometry"/>
-                </mxCell>
-                <mxCell id="amenities" value="AMENITIES" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#e1d5e7;" parent="1" vertex="1">
-                    <mxGeometry x="400" y="-1055" width="180" height="100" as="geometry"/>
-                </mxCell>
-                <mxCell id="amenities_attr" value="+ id: int [PK]&#xa;+ name: string(100) [unique]&#xa;+ icon: string&#xa;+ description: text" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" parent="amenities" vertex="1">
-                    <mxGeometry y="26" width="180" height="74" as="geometry"/>
-                </mxCell>
-                <mxCell id="service" value="SERVICE" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#e1d5e7;" parent="1" vertex="1">
-                    <mxGeometry x="950" y="-690" width="200" height="120" as="geometry"/>
-                </mxCell>
-                <mxCell id="service_attr" value="+ id: int [PK]&#xa;+ name: string(100)&#xa;+ description: text&#xa;+ base_price: decimal&#xa;+ type: enum&#xa;+ is_active: boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" parent="service" vertex="1">
-                    <mxGeometry y="26" width="200" height="94" as="geometry"/>
-                </mxCell>
-                <mxCell id="location" value="LOCATION" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#d5e8d4;" parent="1" vertex="1">
-                    <mxGeometry x="-100" y="-850" width="220" height="260" as="geometry"/>
-                </mxCell>
-                <mxCell id="location_attr" value="+ id: int [PK]&#xa;+ owner_id: int [FK-User]&#xa;+ title: string(255)&#xa;+ description: text&#xa;+ type_location_id: int [FK]&#xa;+ nb_max_guests: int&#xa;+ nb_rooms: int&#xa;+ nb_bathrooms: int&#xa;+ price_per_night: decimal&#xa;+ rating: float&#xa;+ latitude: float&#xa;+ longitude: float&#xa;+ address: string(255)&#xa;+ city: string(100)&#xa;+ postal_code: string(20)&#xa;+ country: string(100)&#xa;+ is_active: boolean&#xa;+ created_at: timestamp&#xa;+ updated_at: timestamp" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" parent="location" vertex="1">
-                    <mxGeometry y="26" width="220" height="234" as="geometry"/>
-                </mxCell>
-                <mxCell id="loc_amenities" value="LOCATION_AMENITIES" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#fff2cc;" parent="1" vertex="1">
-                    <mxGeometry x="130" y="-1050" width="200" height="90" as="geometry"/>
-                </mxCell>
-                <mxCell id="loc_amenities_attr" value="+ id: int [PK]&#xa;+ location_id: int [FK]&#xa;+ amenity_id: int [FK]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" parent="loc_amenities" vertex="1">
-                    <mxGeometry y="26" width="200" height="64" as="geometry"/>
-                </mxCell>
-                <mxCell id="reservation" value="RESERVATION" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#ffe6cc;" parent="1" vertex="1">
-                    <mxGeometry x="320" y="-480" width="220" height="160" as="geometry"/>
-                </mxCell>
-                <mxCell id="reservation_attr" value="+ id: int [PK]&#xa;+ location_id: int [FK]&#xa;+ user_id: int [FK]&#xa;+ check_in: date&#xa;+ check_out: date&#xa;+ nb_guests: int&#xa;+ total_price: decimal&#xa;+ status: enum&#xa;+ notes: text&#xa;+ created_at: timestamp&#xa;+ updated_at: timestamp" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" parent="reservation" vertex="1">
-                    <mxGeometry y="26" width="220" height="134" as="geometry"/>
-                </mxCell>
-                <mxCell id="res_service" value="RESERVATION_SERVICE" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#fff2cc;" parent="1" vertex="1">
-                    <mxGeometry x="640" y="-640" width="220" height="110" as="geometry"/>
-                </mxCell>
-                <mxCell id="res_service_attr" value="+ id: int [PK]&#xa;+ reservation_id: int [FK]&#xa;+ service_id: int [FK]&#xa;+ quantity: int&#xa;+ price: decimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" parent="res_service" vertex="1">
-                    <mxGeometry y="26" width="220" height="84" as="geometry"/>
-                </mxCell>
-                <mxCell id="payment" value="PAYMENT" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#ffe6cc;" parent="1" vertex="1">
-                    <mxGeometry x="430" y="-810" width="200" height="140" as="geometry"/>
-                </mxCell>
-                <mxCell id="payment_attr" value="+ id: int [PK]&#xa;+ reservation_id: int [FK]&#xa;+ user_id: int [FK]&#xa;+ amount: decimal&#xa;+ payment_method: enum&#xa;+ status: enum&#xa;+ transaction_id: string&#xa;+ payment_date: timestamp&#xa;+ refund_date: timestamp" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" parent="payment" vertex="1">
-                    <mxGeometry y="26" width="200" height="114" as="geometry"/>
-                </mxCell>
-                <mxCell id="checkinout" value="CHECK_IN_OUT" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#ffe6cc;" parent="1" vertex="1">
-                    <mxGeometry x="-300" y="30" width="200" height="140" as="geometry"/>
-                </mxCell>
-                <mxCell id="checkinout_attr" value="+ id: int [PK]&#xa;+ reservation_id: int [FK]&#xa;+ user_id: int [FK]&#xa;+ check_in_time: timestamp&#xa;+ check_out_time: timestamp&#xa;+ check_in_status: enum&#xa;+ check_out_status: enum&#xa;+ notes: text" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" parent="checkinout" vertex="1">
-                    <mxGeometry y="26" width="200" height="114" as="geometry"/>
-                </mxCell>
-                <mxCell id="review" value="REVIEW" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#f8cecc;" parent="1" vertex="1">
-                    <mxGeometry x="290" y="-60" width="200" height="140" as="geometry"/>
-                </mxCell>
-                <mxCell id="review_attr" value="+ id: int [PK]&#xa;+ reservation_id: int [FK]&#xa;+ location_id: int [FK]&#xa;+ user_id: int [FK]&#xa;+ rating: int&#xa;+ title: string(200)&#xa;+ comment: text&#xa;+ created_at: timestamp&#xa;+ is_verified: boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" parent="review" vertex="1">
-                    <mxGeometry y="26" width="200" height="114" as="geometry"/>
-                </mxCell>
-                <mxCell id="bank_account" value="BANK_ACCOUNT" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#f8cecc;" parent="1" vertex="1">
-                    <mxGeometry x="-870" y="-120" width="220" height="140" as="geometry"/>
-                </mxCell>
-                <mxCell id="bank_account_attr" value="+ id: int [PK]&#xa;+ user_id: int [FK]&#xa;+ account_holder: string(200)&#xa;+ iban: string(34) [unique]&#xa;+ bic: string(11)&#xa;+ is_verified: boolean&#xa;+ is_default: boolean&#xa;+ created_at: timestamp" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" parent="bank_account" vertex="1">
-                    <mxGeometry y="26" width="220" height="114" as="geometry"/>
-                </mxCell>
-                <mxCell id="calendar" value="CALENDAR" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#cce5ff;" parent="1" vertex="1">
-                    <mxGeometry x="-360" y="-550" width="220" height="120" as="geometry"/>
-                </mxCell>
-                <mxCell id="calendar_attr" value="+ id: int [PK]&#xa;+ location_id: int [FK]&#xa;+ availability_date: date&#xa;+ is_available: boolean&#xa;+ price_override: decimal&#xa;+ updated_at: timestamp" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" parent="calendar" vertex="1">
-                    <mxGeometry y="26" width="220" height="94" as="geometry"/>
-                </mxCell>
-                <mxCell id="report" value="REPORT" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#cce5ff;" parent="1" vertex="1">
-                    <mxGeometry x="-630" y="-120" width="220" height="140" as="geometry"/>
-                </mxCell>
-                <mxCell id="report_attr" value="+ id: int [PK]&#xa;+ created_by: int [FK-User]&#xa;+ report_type: enum&#xa;+ title: string(255)&#xa;+ description: text&#xa;+ data: json&#xa;+ generated_at: timestamp&#xa;+ period_start: date&#xa;+ period_end: date" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" parent="report" vertex="1">
-                    <mxGeometry y="26" width="220" height="114" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel_user_role" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;fontSize=11;fontStyle=1;endArrow=ERmandOne;startArrow=ERmany;strokeColor=light-dark(#000000,#00CC00);" parent="1" source="user" target="role" edge="1" vertex="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel_loc_type" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;strokeColor=light-dark(#000000,#FFFF00);" parent="1" source="location" target="type_loc" edge="1" vertex="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel_loc_user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.3;exitY=0;entryX=0.3;entryY=1;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;strokeColor=light-dark(#000000,#00CC00);" parent="1" source="location" target="user" edge="1" vertex="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel_locamen_loc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;entryX=0.75;entryY=0;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;strokeColor=light-dark(#000000,#FFFF00);" parent="1" source="loc_amenities" target="location" edge="1" vertex="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel_locamen_amen" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;" parent="1" source="loc_amenities" target="amenities" edge="1" vertex="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel_res_loc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.25;entryY=1;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;strokeColor=light-dark(#000000,#FFFF00);" parent="1" source="reservation" target="location" edge="1" vertex="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel_res_user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;entryX=0.1;entryY=1;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;strokeColor=light-dark(#000000,#00CC00);" parent="1" source="reservation" target="user" edge="1" vertex="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel_resserv_res" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;entryX=0.75;entryY=0;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;strokeColor=light-dark(#000000,#66FFFF);" parent="1" source="res_service" target="reservation" edge="1" vertex="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel_resserv_serv" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3;entryX=0;entryY=0.7;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;" parent="1" source="res_service" target="service" edge="1" vertex="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel_pay_res" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;entryX=0.75;entryY=0;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;strokeColor=light-dark(#000000,#66FFFF);" parent="1" source="payment" target="reservation" edge="1" vertex="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel_pay_user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;strokeColor=light-dark(#000000,#00CC00);" parent="1" source="payment" target="user" edge="1" vertex="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel_cio_res" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;entryX=1;entryY=0;fontSize=10;endArrow=ERone;startArrow=ERone;strokeColor=light-dark(#000000,#66FFFF);" parent="1" source="checkinout" target="reservation" edge="1" vertex="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel_cio_user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.7;entryY=1;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;strokeColor=light-dark(#000000,#00CC00);" parent="1" source="checkinout" target="user" edge="1" vertex="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel_rev_res" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;entryX=1;entryY=0.5;fontSize=10;endArrow=ERone;startArrow=ERone;strokeColor=light-dark(#000000,#66FFFF);" parent="1" source="review" target="reservation" edge="1" vertex="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel_rev_loc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.3;entryX=1;entryY=0.3;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;strokeColor=light-dark(#000000,#FFFF00);" parent="1" source="review" target="location" edge="1" vertex="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel_rev_user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.9;entryY=1;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;strokeColor=light-dark(#000000,#00CC00);" parent="1" source="review" target="user" edge="1" vertex="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel_bank_user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=1;entryY=0;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;strokeColor=light-dark(#000000,#00CC00);" parent="1" source="bank_account" target="user" edge="1" vertex="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel_cal_loc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.1;entryY=1;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;strokeColor=light-dark(#000000,#FFFF00);" parent="1" source="calendar" target="location" edge="1" vertex="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel_rep_user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;shadow=0;strokeColor=light-dark(#000000,#00CC00);" parent="1" source="report" target="user" edge="1" vertex="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-            </root>
-        </mxGraphModel>
-    </diagram>
+<mxfile host="Electron" modified="2026-04-07T10:00:00.000Z" agent="5.0" etag="abc123" version="24.0" type="device">
+  <diagram id="uml-db" name="Database UML">
+    <mxGraphModel dx="1400" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1700" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- ROLE Entity -->
+        <mxCell id="role" value="ROLE" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#e1d5e7;" vertex="1" parent="1">
+          <mxGeometry x="50" y="50" width="160" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="role_attr" value="+ id: int [PK]&#10;+ role_name: string(30)&#10;+ description: text" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="role">
+          <mxGeometry y="26" width="160" height="74" as="geometry"/>
+        </mxCell>
+
+        <!-- USER Entity -->
+        <mxCell id="user" value="USER" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#d5e8d4;" vertex="1" parent="1">
+          <mxGeometry x="300" y="30" width="200" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="user_attr" value="+ id: int [PK]&#10;+ first_name: string(100)&#10;+ last_name: string(100)&#10;+ email: email [unique]&#10;+ password: string(255)&#10;+ phone: string(20)&#10;+ profile_picture: string&#10;+ role_id: int [FK]&#10;+ verification_status: enum&#10;+ created_at: timestamp&#10;+ is_active: boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="user">
+          <mxGeometry y="26" width="200" height="154" as="geometry"/>
+        </mxCell>
+
+        <!-- TYPE_LOCATION Entity -->
+        <mxCell id="type_loc" value="TYPE_LOCATION" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#e1d5e7;" vertex="1" parent="1">
+          <mxGeometry x="600" y="30" width="180" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="type_loc_attr" value="+ id: int [PK]&#10;+ type_name: string(100)&#10;+ description: text" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="type_loc">
+          <mxGeometry y="26" width="180" height="74" as="geometry"/>
+        </mxCell>
+
+        <!-- AMENITIES Entity -->
+        <mxCell id="amenities" value="AMENITIES" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#e1d5e7;" vertex="1" parent="1">
+          <mxGeometry x="870" y="30" width="180" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="amenities_attr" value="+ id: int [PK]&#10;+ name: string(100) [unique]&#10;+ icon: string&#10;+ description: text" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="amenities">
+          <mxGeometry y="26" width="180" height="74" as="geometry"/>
+        </mxCell>
+
+        <!-- SERVICE Entity -->
+        <mxCell id="service" value="SERVICE" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#e1d5e7;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="30" width="200" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="service_attr" value="+ id: int [PK]&#10;+ name: string(100)&#10;+ description: text&#10;+ base_price: decimal&#10;+ type: enum&#10;+ is_active: boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="service">
+          <mxGeometry y="26" width="200" height="94" as="geometry"/>
+        </mxCell>
+
+        <!-- LOCATION Entity -->
+        <mxCell id="location" value="LOCATION" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#d5e8d4;" vertex="1" parent="1">
+          <mxGeometry x="300" y="280" width="220" height="260" as="geometry"/>
+        </mxCell>
+        <mxCell id="location_attr" value="+ id: int [PK]&#10;+ owner_id: int [FK-User]&#10;+ title: string(255)&#10;+ description: text&#10;+ type_location_id: int [FK]&#10;+ nb_max_guests: int&#10;+ nb_rooms: int&#10;+ nb_bathrooms: int&#10;+ price_per_night: decimal&#10;+ rating: float&#10;+ latitude: float&#10;+ longitude: float&#10;+ address: string(255)&#10;+ city: string(100)&#10;+ postal_code: string(20)&#10;+ country: string(100)&#10;+ is_active: boolean&#10;+ created_at: timestamp&#10;+ updated_at: timestamp" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" vertex="1" parent="location">
+          <mxGeometry y="26" width="220" height="234" as="geometry"/>
+        </mxCell>
+
+        <!-- LOCATION_AMENITIES Join Table -->
+        <mxCell id="loc_amenities" value="LOCATION_AMENITIES" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#fff2cc;" vertex="1" parent="1">
+          <mxGeometry x="630" y="280" width="200" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="loc_amenities_attr" value="+ id: int [PK]&#10;+ location_id: int [FK]&#10;+ amenity_id: int [FK]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="loc_amenities">
+          <mxGeometry y="26" width="200" height="64" as="geometry"/>
+        </mxCell>
+
+        <!-- RESERVATION Entity -->
+        <mxCell id="reservation" value="RESERVATION" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#ffe6cc;" vertex="1" parent="1">
+          <mxGeometry x="50" y="450" width="220" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="reservation_attr" value="+ id: int [PK]&#10;+ location_id: int [FK]&#10;+ user_id: int [FK]&#10;+ check_in: date&#10;+ check_out: date&#10;+ nb_guests: int&#10;+ total_price: decimal&#10;+ status: enum&#10;+ notes: text&#10;+ created_at: timestamp&#10;+ updated_at: timestamp" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" vertex="1" parent="reservation">
+          <mxGeometry y="26" width="220" height="134" as="geometry"/>
+        </mxCell>
+
+        <!-- RESERVATION_SERVICE Join Table -->
+        <mxCell id="res_service" value="RESERVATION_SERVICE" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#fff2cc;" vertex="1" parent="1">
+          <mxGeometry x="310" y="450" width="220" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="res_service_attr" value="+ id: int [PK]&#10;+ reservation_id: int [FK]&#10;+ service_id: int [FK]&#10;+ quantity: int&#10;+ price: decimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="res_service">
+          <mxGeometry y="26" width="220" height="84" as="geometry"/>
+        </mxCell>
+
+        <!-- PAYMENT Entity -->
+        <mxCell id="payment" value="PAYMENT" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#ffe6cc;" vertex="1" parent="1">
+          <mxGeometry x="580" y="450" width="200" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="payment_attr" value="+ id: int [PK]&#10;+ reservation_id: int [FK]&#10;+ user_id: int [FK]&#10;+ amount: decimal&#10;+ payment_method: enum&#10;+ status: enum&#10;+ transaction_id: string&#10;+ payment_date: timestamp&#10;+ refund_date: timestamp" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" vertex="1" parent="payment">
+          <mxGeometry y="26" width="200" height="114" as="geometry"/>
+        </mxCell>
+
+        <!-- CHECK_IN_OUT Entity -->
+        <mxCell id="checkinout" value="CHECK_IN_OUT" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#ffe6cc;" vertex="1" parent="1">
+          <mxGeometry x="840" y="450" width="200" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="checkinout_attr" value="+ id: int [PK]&#10;+ reservation_id: int [FK]&#10;+ user_id: int [FK]&#10;+ check_in_time: timestamp&#10;+ check_out_time: timestamp&#10;+ check_in_status: enum&#10;+ check_out_status: enum&#10;+ notes: text" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" vertex="1" parent="checkinout">
+          <mxGeometry y="26" width="200" height="114" as="geometry"/>
+        </mxCell>
+
+        <!-- REVIEW Entity -->
+        <mxCell id="review" value="REVIEW" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#f8cecc;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="450" width="200" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="review_attr" value="+ id: int [PK]&#10;+ reservation_id: int [FK]&#10;+ location_id: int [FK]&#10;+ user_id: int [FK]&#10;+ rating: int&#10;+ title: string(200)&#10;+ comment: text&#10;+ created_at: timestamp&#10;+ is_verified: boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" vertex="1" parent="review">
+          <mxGeometry y="26" width="200" height="114" as="geometry"/>
+        </mxCell>
+
+        <!-- BANK_ACCOUNT Entity -->
+        <mxCell id="bank_account" value="BANK_ACCOUNT" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#f8cecc;" vertex="1" parent="1">
+          <mxGeometry x="1360" y="450" width="220" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="bank_account_attr" value="+ id: int [PK]&#10;+ user_id: int [FK]&#10;+ account_holder: string(200)&#10;+ iban: string(34) [unique]&#10;+ bic: string(11)&#10;+ is_verified: boolean&#10;+ is_default: boolean&#10;+ created_at: timestamp" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" vertex="1" parent="bank_account">
+          <mxGeometry y="26" width="220" height="114" as="geometry"/>
+        </mxCell>
+
+        <!-- CALENDAR Entity -->
+        <mxCell id="calendar" value="CALENDAR" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#cce5ff;" vertex="1" parent="1">
+          <mxGeometry x="50" y="700" width="220" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="calendar_attr" value="+ id: int [PK]&#10;+ location_id: int [FK]&#10;+ availability_date: date&#10;+ is_available: boolean&#10;+ price_override: decimal&#10;+ updated_at: timestamp" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="calendar">
+          <mxGeometry y="26" width="220" height="94" as="geometry"/>
+        </mxCell>
+
+        <!-- REPORT Entity -->
+        <mxCell id="report" value="REPORT" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=2;fillColor=#cce5ff;" vertex="1" parent="1">
+          <mxGeometry x="330" y="700" width="220" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="report_attr" value="+ id: int [PK]&#10;+ created_by: int [FK-User]&#10;+ report_type: enum&#10;+ title: string(255)&#10;+ description: text&#10;+ data: json&#10;+ generated_at: timestamp&#10;+ period_start: date&#10;+ period_end: date" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" vertex="1" parent="report">
+          <mxGeometry y="26" width="220" height="114" as="geometry"/>
+        </mxCell>
+
+        <!-- Relations/Connectors -->
+        <!-- USER -> ROLE (N:1) -->
+        <mxCell id="rel_user_role" edge="1" parent="1" source="user" target="role" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;fontSize=11;fontStyle=1;endArrow=ERmandOne;startArrow=ERmany;" vertex="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- LOCATION -> TYPE_LOCATION (N:1) -->
+        <mxCell id="rel_loc_type" edge="1" parent="1" source="location" target="type_loc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;" vertex="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- LOCATION -> USER (owner) -->
+        <mxCell id="rel_loc_user" edge="1" parent="1" source="location" target="user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.3;exitY=0;entryX=0.3;entryY=1;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;" vertex="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- LOCATION_AMENITIES -> LOCATION (N:1) -->
+        <mxCell id="rel_locamen_loc" edge="1" parent="1" source="loc_amenities" target="location" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;entryX=0.75;entryY=0;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;" vertex="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- LOCATION_AMENITIES -> AMENITIES (N:1) -->
+        <mxCell id="rel_locamen_amen" edge="1" parent="1" source="loc_amenities" target="amenities" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;" vertex="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- RESERVATION -> LOCATION (N:1) -->
+        <mxCell id="rel_res_loc" edge="1" parent="1" source="reservation" target="location" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.25;entryY=1;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;" vertex="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- RESERVATION -> USER (N:1) -->
+        <mxCell id="rel_res_user" edge="1" parent="1" source="reservation" target="user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;entryX=0.1;entryY=1;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;" vertex="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- RESERVATION_SERVICE -> RESERVATION (N:1) -->
+        <mxCell id="rel_resserv_res" edge="1" parent="1" source="res_service" target="reservation" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;entryX=0.75;entryY=0;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;" vertex="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- RESERVATION_SERVICE -> SERVICE (N:1) -->
+        <mxCell id="rel_resserv_serv" edge="1" parent="1" source="res_service" target="service" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3;entryX=0;entryY=0.7;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;" vertex="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- PAYMENT -> RESERVATION (N:1) -->
+        <mxCell id="rel_pay_res" edge="1" parent="1" source="payment" target="reservation" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;entryX=0.75;entryY=0;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;" vertex="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- PAYMENT -> USER (N:1) -->
+        <mxCell id="rel_pay_user" edge="1" parent="1" source="payment" target="user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;" vertex="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- CHECK_IN_OUT -> RESERVATION (1:1) -->
+        <mxCell id="rel_cio_res" edge="1" parent="1" source="checkinout" target="reservation" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;entryX=1;entryY=0;fontSize=10;endArrow=ERone;startArrow=ERone;" vertex="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- CHECK_IN_OUT -> USER (N:1) -->
+        <mxCell id="rel_cio_user" edge="1" parent="1" source="checkinout" target="user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.7;entryY=1;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;" vertex="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- REVIEW -> RESERVATION (1:1) -->
+        <mxCell id="rel_rev_res" edge="1" parent="1" source="review" target="reservation" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;entryX=1;entryY=0.5;fontSize=10;endArrow=ERone;startArrow=ERone;" vertex="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- REVIEW -> LOCATION (N:1) -->
+        <mxCell id="rel_rev_loc" edge="1" parent="1" source="review" target="location" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.3;entryX=1;entryY=0.3;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;" vertex="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- REVIEW -> USER (N:1) -->
+        <mxCell id="rel_rev_user" edge="1" parent="1" source="review" target="user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.9;entryY=1;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;" vertex="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- BANK_ACCOUNT -> USER (N:1) -->
+        <mxCell id="rel_bank_user" edge="1" parent="1" source="bank_account" target="user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=1;entryY=0;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;" vertex="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- CALENDAR -> LOCATION (N:1) -->
+        <mxCell id="rel_cal_loc" edge="1" parent="1" source="calendar" target="location" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.1;entryY=1;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;" vertex="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- REPORT -> USER (N:1 - created_by) -->
+        <mxCell id="rel_rep_user" edge="1" parent="1" source="report" target="user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;fontSize=10;endArrow=ERmandOne;startArrow=ERmany;" vertex="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
 </mxfile>
