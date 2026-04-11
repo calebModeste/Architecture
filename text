@@ -1,0 +1,153 @@
+ TP : Conception d’une Application – Système de Gestion Hôtelière
+
+1. Présentation de l’Application
+Le système de gestion hôtelière est une application web complète permettant de gérer de manière centralisée toutes les opérations liées à la location de biens immobiliers tels que des chambres, studios et appartements.
+Cette application a été conçue pour répondre aux besoins modernes de digitalisation du secteur hôtelier. Elle permet de remplacer les méthodes traditionnelles de gestion manuelle par une solution automatisée, sécurisée et accessible en ligne.
+L’objectif principal est de faciliter la communication entre les différents acteurs du système (clients, administrateurs et super administrateurs), tout en assurant une gestion efficace des réservations et des paiements.
+Le système fonctionne en temps réel, ce qui signifie que chaque action effectuée par un utilisateur est immédiatement enregistrée dans la base de données et mise à jour dans l’ensemble de la plateforme.
+
+2. Description détaillée de l’Application
+Dans les systèmes traditionnels de gestion hôtelière, plusieurs problèmes sont souvent rencontrés :
+Les réservations sont gérées manuellement, ce qui entraîne des erreurs fréquentes
+Les doubles réservations peuvent survenir
+Les informations sur les disponibilités ne sont pas toujours à jour
+Le suivi des paiements est complexe et peu structuré
+La communication entre clients et gestionnaires est lente
+Cette application propose une solution complète à ces problèmes en automatisant l’ensemble des processus.
+Elle permet une gestion centralisée des données, ce qui signifie que toutes les informations sont stockées dans une base de données unique et accessible en temps réel.
+Le système est également conçu pour être sécurisé, évolutif et accessible depuis n’importe quel appareil connecté à Internet.
+Enfin, il améliore l’expérience utilisateur en proposant une interface simple, intuitive et rapide.
+
+
+
+3. Fonctionnalités principales
+
+3.1 Authentification et sécurité
+L’authentification est une étape essentielle du système. Elle permet de garantir que seuls les utilisateurs autorisés peuvent accéder à la plateforme.
+Chaque utilisateur possède un compte personnel avec un rôle spécifique :
+Client
+Admin
+Super Admin
+Le système assure :
+La protection des mots de passe par chiffrement
+La gestion des sessions sécurisées
+La prévention des accès non autorisés
+La récupération de mot de passe en cas d’oubli
+
+3.2 Gestion des biens en location
+Cette fonctionnalité permet aux administrateurs de gérer les biens disponibles sur la plateforme.
+Chaque bien contient des informations détaillées telles que :
+Le type de logement (chambre, studio, appartement)
+Le prix par nuit
+La localisation géographique
+Les images du bien
+La description complète
+La disponibilité en temps réel
+Les administrateurs peuvent :
+Ajouter un nouveau bien
+Modifier les informations existantes
+Supprimer un bien
+Mettre à jour la disponibilité
+Cette gestion permet d’assurer une base de données toujours fiable et actualisée.
+
+3.3 Gestion des réservations
+Le système de réservation permet aux clients de réserver un bien pour une période donnée.
+Lorsqu’un client effectue une réservation :
+Le système vérifie automatiquement la disponibilité
+Une demande est créée dans la base de données
+L’administrateur peut valider ou refuser la demande
+Les statuts possibles sont :
+En attente
+Confirmée
+Annulée
+Terminée
+Ce système permet d’éviter les conflits de réservation et garantit une organisation optimale.
+
+3.4 Gestion des paiements
+Les paiements sont effectués en ligne via une plateforme sécurisée.
+Chaque transaction est :
+Enregistrée dans la base de données
+Associée à une réservation spécifique
+Suivie pour assurer la transparence
+Le système garantit la sécurité des paiements grâce à des protocoles avancés de chiffrement et à l’utilisation de services fiables de paiement.
+
+3.5 Gestion des utilisateurs
+Cette fonctionnalité permet de gérer tous les utilisateurs de la plateforme.
+Le système permet :
+La création de comptes utilisateurs
+La modification des informations
+La suppression ou désactivation de comptes
+L’attribution de rôles spécifiques
+Cette séparation des rôles améliore la sécurité et permet de contrôler précisément les accès à la plateforme.
+
+3.6 Tableau de bord et statistiques
+Le tableau de bord est un outil essentiel pour les administrateurs.
+Il permet de visualiser :
+Le nombre total de réservations
+Les revenus générés
+Le taux d’occupation des biens
+Les performances globales du système
+Ces informations permettent une prise de décision stratégique basée sur des données réelles.
+
+3.7 Avis et évaluations
+Les clients peuvent laisser des avis sur les biens après leur séjour.
+Ces avis permettent :
+D’améliorer la qualité des services
+De renforcer la confiance entre utilisateurs
+D’aider les futurs clients dans leur choix
+Les notes et commentaires sont également utilisés comme indicateurs de performance.
+
+3.8 Configuration du système
+Le système dispose d’un module de configuration permettant de définir les règles globales.
+Cela inclut :
+Les paramètres de sécurité
+Les règles de réservation
+Les configurations générales de la plateforme
+
+4. Architecture de l’application
+L’application est construite sur une architecture moderne en trois couches :
+Frontend : interface utilisateur
+Backend : logique métier et API
+Base de données : stockage des informations
+Cette séparation permet une meilleure organisation et facilite la maintenance et l’évolution du système.
+
+5. Processus de création
+Le développement de l’application suit un processus structuré :
+Conception : analyse des besoins et création des maquettes
+Développement : implémentation des fonctionnalités
+Tests : vérification du bon fonctionnement
+Déploiement : mise en ligne de l’application
+Maintenance : correction et amélioration continue
+Chaque étape est essentielle pour garantir la qualité du système final.
+
+6. Acteurs et parties prenantes
+Les principaux acteurs du système sont :
+Les clients : réservent et évaluent les biens
+Les administrateurs : gèrent les biens et les réservations
+Les super administrateurs : supervisent l’ensemble du système
+Les développeurs : conçoivent et maintiennent l’application
+Les testeurs : vérifient la qualité du système
+Les administrateurs système : gèrent l’infrastructure
+
+7. Outils, technologies et protocoles
+Les technologies utilisées sont :
+Frontend : Next.js
+Backend : Supabase
+Base de données : PostgreSQL
+Paiement : Stripe
+Emails : Nodemailer
+Cartographie : Mapbox
+La sécurité est assurée par :
+HTTPS
+JWT
+Chiffrement des données
+La gestion du projet suit la méthode Agile avec utilisation de Git pour le versioning.
+
+Conclusion
+Ce système de gestion hôtelière est une solution complète permettant de digitaliser et automatiser la gestion des locations.
+Il améliore :
+L’efficacité des opérations
+La sécurité des données
+L’expérience utilisateur
+La gestion globale des réservations et paiements
+
