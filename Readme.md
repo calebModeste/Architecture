@@ -295,6 +295,7 @@ Traitement des paiements sécurisés.
 - **PostgreSQL** : SGBD relationnel
 - **Prisma** : ORM et migrations
 - **pg** : Driver PostgreSQL pour Node.js
+- **Supabase** : Base de données.
 
 ### Services externes
 - **Stripe** : Paiements sécurisés
@@ -302,10 +303,9 @@ Traitement des paiements sécurisés.
 - **Mapbox** : Cartographie et géolocalisation
 
 ### Infrastructure
-- **Vercel** : Hébergement frontend
-- **Railway/Heroku** : Hébergement backend
+- **Render** : Hébergement frontend & Hébergement backend
 - **PostgreSQL** : Base de données hébergée
-- **AWS S3/Cloudinary** : Stockage de fichiers
+- **SupaBase** : Stockage de fichiers
 
 ---
 
@@ -403,114 +403,6 @@ Nodemailer -> Client: Email confirmation
 - **Vérification** email obligatoire
 - **Logs** de sécurité détaillés
 - **Monitoring** des activités suspectes
-
----
-
-## Installation et déploiement
-
-### Prérequis
-- Node.js 18+
-- PostgreSQL 14+
-- Comptes services externes (Stripe, Mapbox, Supabase)
-
-### Configuration locale
-
-1. **Clonage du projet**
-```bash
-git clone [repository-url]
-cd hotel-management-system
-```
-
-2. **Installation dépendances**
-```bash
-npm install
-# Frontend
-cd frontend && npm install
-# Backend  
-cd ../backend && npm install
-```
-
-3. **Configuration environnement**
-```bash
-# .env.local (Frontend)
-NEXT_PUBLIC_API_URL=http://localhost:3001
-NEXT_PUBLIC_MAPBOX_TOKEN=your_mapbox_token
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_key
-
-# .env (Backend)
-DATABASE_URL=postgresql://username:password@host:port/database
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=hotel_management
-DB_USER=postgres
-DB_PASSWORD=your_password
-STRIPE_SECRET_KEY=your_stripe_secret
-EMAIL_HOST=smtp_provider
-EMAIL_USER=your_email
-EMAIL_PASS=your_password
-AWS_ACCESS_KEY_ID=your_aws_key
-AWS_SECRET_ACCESS_KEY=your_aws_secret
-AWS_S3_BUCKET=your_bucket_name
-```
-
-4. **Base de données**
-```bash
-# Migration Prisma
-npx prisma migrate dev
-# Seed data
-npx prisma db seed
-```
-
-5. **Démarrage**
-```bash
-# Backend
-npm run dev
-
-# Frontend (autre terminal)
-cd frontend && npm run dev
-```
-
-### Déploiement production
-
-#### Frontend (Vercel)
-```bash
-vercel --prod
-```
-
-#### Backend (Railway/Heroku)
-```bash
-# Configuration variables d'environnement
-# Build et déploiement automatique
-```
-
-#### Base de données (PostgreSQL)
-- Installation PostgreSQL local ou distant
-- Configuration de la base de données
-- Exécution des migrations Prisma
-- Configuration des rôles et permissions
-
-#### Stockage fichiers (AWS S3/Cloudinary)
-- Création buckets S3 ou compte Cloudinary
-- Configuration des clés d'accès
-- Setup des permissions CORS
-
-### Monitoring et maintenance
-
-#### Logs et métriques
-- **Application logs** : Winston/Morgan
-- **Error tracking** : Sentry
-- **Performance** : Vercel Analytics
-- **Uptime** : UptimeRobot
-
-#### Backups
-- **Base de données** : pg_dump automatisé ou AWS RDS backups
-- **Storage** : Versioning S3 ou backups Cloudinary
-- **Code** : Git versioning
-
-#### Mises à jour
-- **Dépendances** : npm audit & update
-- **Sécurité** : Patchs réguliers
-- **Fonctionnalités** : Déploiement progressif
 
 ---
 
